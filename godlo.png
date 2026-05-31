@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Dell\\\\Desktop\\\\sp3brzeziny\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(xargs grep -h \"class=\\\\\"active\\\\\"\")",
+      "Bash(powershell -Command \"Get-Item 'C:\\\\Users\\\\Dell\\\\Desktop\\\\sp3brzeziny\\\\img\\\\godlo.png' | Select-Object Length; Get-Content 'C:\\\\Users\\\\Dell\\\\Desktop\\\\sp3brzeziny\\\\img\\\\godlo.png' -Raw\")"
+    ]
+  }
+}

@@ -1,0 +1,892 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Strona dla rodzicow uczniow SP3 Brzeziny - plan dzwonkow, podreczniki, dokumenty, pedagog Aldona Nawrocka, stołówka, porady wychowawcze">
+<title>Dla rodzic&#243;w &#8212; SP nr 3 Brzeziny</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="img/emblem.svg" type="image/svg+xml">
+<style>
+/* ════════════════════════════════════════════
+   SP3 BRZEZINY — SHARED DESIGN SYSTEM
+   Granat + Złoto · DM Sans + Playfair Display
+════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:        #0d1f3c;
+  --navy-mid:    #1a3157;
+  --navy-light:  #243d68;
+  --gold:        #c8962a;
+  --gold-light:  #e8b84b;
+  --gold-pale:   #f5e6c0;
+  --cream:       #faf7f2;
+  --warm-white:  #fffef9;
+  --text:        #1c1c1c;
+  --muted:       #6b7280;
+  --border:      #e5ddd0;
+  --shadow:      rgba(13,31,60,.10);
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   18px;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy);padding:6px 48px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.55)}
+.topbar a{color:rgba(255,255,255,.55);transition:color .2s}
+.topbar a:hover{color:var(--gold-light)}
+.topbar-left{display:flex;gap:20px;align-items:center}
+.topbar-right{display:flex;gap:20px}
+.chip{background:var(--gold);color:#fff;padding:2px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.03em}
+
+/* ── HEADER ── */
+header{background:rgba(250,247,242,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;backdrop-filter:blur(14px);overflow:visible}
+.header-inner{max-width:1240px;margin:0 auto;padding:8px 48px;display:flex;align-items:center;gap:20px;min-height:106px}
+.logo{display:flex;align-items:center;gap:14px;flex:1;overflow:visible}
+.logo-mark{display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;overflow:visible}
+.logo-mark::after{display:none}
+.logo-mark span{display:none}
+.logo-copy strong{display:block;font-family:'Playfair Display',serif;font-size:14.5px;color:var(--navy)}
+.logo-copy small{font-size:10.5px;color:var(--muted)}
+nav.main-nav{display:flex;align-items:center;gap:2px}
+.nav-item{position:relative}
+.nav-link{display:block;padding:8px 13px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--navy);transition:background .2s,color .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{background:var(--navy);color:#fff}
+.nav-dropdown{position:absolute;top:100%;left:0;padding-top:10px;background:transparent;min-width:240px;opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .2s,transform .2s;z-index:300}
+.nav-dropdown-inner{background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px;box-shadow:0 16px 40px var(--shadow)}
+.nav-item:hover .nav-dropdown,.nav-item:focus-within .nav-dropdown{opacity:1;pointer-events:all;transform:none}
+.nav-dropdown-inner a{display:block;padding:9px 14px;border-radius:8px;font-size:13px;color:var(--navy);transition:background .2s}
+.nav-dropdown-inner a:hover{background:var(--cream)}
+.nav-cta{background:var(--gold)!important;color:#fff!important;padding:9px 18px!important;font-weight:600!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:48px 32px 32px;overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav-close{align-self:flex-end;font-size:28px;padding:4px 12px;color:var(--navy);cursor:pointer;margin-bottom:24px}
+.mobile-nav a{padding:14px 0;border-bottom:1px solid var(--border);font-size:16px;font-weight:500;color:var(--navy);display:block}
+.mobile-nav a.sub{padding-left:20px;font-size:14px;color:var(--muted)}
+
+/* ── LAYOUT ── */
+.container{max-width:1240px;margin:0 auto;padding:0 48px}
+.section{padding:80px 0}
+.section-sm{padding:56px 0}
+
+/* ── TYPE ── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:12px}
+.section-title em{font-style:normal;color:var(--gold)}
+.section-sub{font-size:15.5px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:40px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s;cursor:pointer}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid)}
+.btn-outline{border:2px solid var(--navy);color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-outline-gold{border:2px solid var(--gold);color:var(--gold)}
+.btn-outline-gold:hover{background:var(--gold);color:#fff}
+.btn-sm{padding:9px 18px;font-size:13px}
+
+/* ── CARD ── */
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px var(--shadow)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--navy);padding:64px 0;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(200,150,42,.2) 0%,transparent 70%)}
+.page-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.page-hero-content{position:relative;z-index:1}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px}
+.page-hero h1 em{font-style:normal;color:var(--gold-light)}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.75;max-width:540px}
+.breadcrumb{display:flex;gap:8px;align-items:center;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.breadcrumb a{color:rgba(255,255,255,.4);transition:color .2s}
+.breadcrumb a:hover{color:var(--gold-light)}
+.breadcrumb span{color:var(--gold)}
+
+/* ── INFO STRIP ── */
+.info-strip{background:var(--gold);padding:18px 48px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;color:#fff;font-weight:500}
+.info-strip a{color:#fff;font-weight:700}
+
+/* ── TABLES ── */
+.info-table{width:100%;border-collapse:collapse}
+.info-table tr{border-bottom:1px solid var(--border)}
+.info-table tr:last-child{border:none}
+.info-table th{text-align:left;padding:13px 16px;background:var(--cream);font-size:12.5px;font-weight:600;color:var(--navy);letter-spacing:.02em;width:42%}
+.info-table td{padding:13px 16px;font-size:13.5px;color:var(--muted)}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.tab-btn{padding:9px 20px;border-radius:9px;font-size:13.5px;font-weight:500;border:1.5px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+.tab-btn.active,.tab-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── SIDEBAR ── */
+.sidebar-widget{background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:20px}
+.sidebar-widget h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--gold);display:inline-block}
+.sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--navy);transition:color .2s}
+.sidebar-link:last-child{border:none}
+.sidebar-link:hover{color:var(--gold)}
+
+/* ── PROSE ── */
+.prose h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin:28px 0 12px}
+.prose h3:first-child{margin-top:0}
+.prose p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.prose ul{margin:12px 0 16px 22px}
+.prose ul li{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
+.prose blockquote{border-left:4px solid var(--gold);padding:14px 20px;background:var(--cream);border-radius:0 10px 10px 0;margin:20px 0;font-style:italic;color:var(--navy)}
+
+/* ── DARK CARD ── */
+.dark-card{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md);padding:22px;margin-bottom:14px}
+.dark-card:last-child{margin-bottom:0}
+.dark-card h4{font-family:'Playfair Display',serif;font-size:15px;color:#fff;margin-bottom:5px}
+.dark-card p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:12px}
+.dark-card a{font-size:12.5px;color:var(--gold-light);font-weight:600}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.4);padding:48px 0 0}
+.footer-inner{max-width:1240px;margin:0 auto;padding:0 48px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand strong{font-family:'Playfair Display',serif;font-size:15px;color:#fff;display:block;margin-bottom:8px}
+.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:18px}
+.footer-social{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s}
+.social-btn:hover{background:var(--gold)}
+.footer-col h5{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);padding:5px 0;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);max-width:1240px;margin:0 auto;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.footer-bottom a{color:var(--gold-light)}
+
+/* ── UTILS ── */
+.bg-cream{background:var(--cream)}
+.mt-8{margin-top:32px}
+.mt-10{margin-top:40px}
+.mb-6{margin-bottom:24px}
+.center{text-align:center}
+.divider{height:1px;background:var(--border)}
+.pulse::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-light);display:inline-block;margin-right:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .topbar{padding:6px 20px}
+  .topbar-right{display:none}
+  .header-inner{max-width:1240px;margin:0 auto;padding:8px 48px;display:flex;align-items:center;gap:20px;min-height:106px}
+  nav.main-nav{display:none}
+  .hamburger{display:flex}
+  .container{padding:0 20px}
+  .footer-inner{grid-template-columns:1fr 1fr;padding:0 20px 32px}
+  .footer-bottom{flex-direction:column;gap:8px;padding:16px 20px;text-align:center}
+  .info-strip{padding:16px 20px;text-align:center;flex-direction:column;gap:4px}
+}
+
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.tab-btn{padding:9px 18px;border-radius:9px;font-size:13.5px;font-weight:500;
+  border:1.5px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+.tab-btn.active,.tab-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* quick access cards */
+.parent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.parent-card{background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:24px;transition:border-color .2s,box-shadow .2s,transform .2s;cursor:pointer;text-decoration:none;display:block}
+.parent-card:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(200,150,42,.12);transform:translateY(-3px)}
+.parent-card-icon{font-size:28px;margin-bottom:12px;display:block}
+.parent-card h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);margin-bottom:7px}
+.parent-card p{font-size:12.5px;color:var(--muted);line-height:1.55}
+
+/* bells / schedule */
+.bells-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bell-row{background:#fff;border:1px solid var(--border);border-radius:12px;
+  padding:14px 18px;display:flex;align-items:center;gap:16px;transition:border-color .2s}
+.bell-row:hover{border-color:var(--gold)}
+.bell-num{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;
+  font-family:'Playfair Display',serif;font-size:16px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bell-num.zero{background:var(--muted)}
+.bell-time{font-size:15px;font-weight:600;color:var(--navy)}
+.bell-dur{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* textbook table */
+.tb-table{width:100%;border-collapse:collapse;margin-top:6px}
+.tb-table th{background:var(--navy);color:#fff;text-align:left;padding:11px 14px;font-size:13px;font-weight:600}
+.tb-table td{padding:11px 14px;font-size:13.5px;color:var(--muted);border-bottom:1px solid var(--border)}
+.tb-table tr:last-child td{border:none}
+.tb-table tr:nth-child(even) td{background:var(--cream)}
+
+/* documents */
+.doc-row{display:flex;justify-content:space-between;align-items:center;
+  padding:15px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;
+  margin-bottom:10px;transition:border-color .2s}
+.doc-row:hover{border-color:var(--gold)}
+.doc-info{display:flex;gap:12px;align-items:center}
+.doc-icon{font-size:22px;flex-shrink:0}
+.doc-title{font-size:14px;font-weight:600;color:var(--navy)}
+.doc-desc{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* meal plan */
+.jadlospis{display:flex;flex-direction:column;gap:9px}
+.jadlo-row{padding:12px 16px;background:#fff;border-radius:10px;border:1px solid var(--border)}
+.jadlo-day{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.jadlo-meal{font-size:13.5px;color:var(--navy)}
+
+/* pedagog */
+.pedagog-layout{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:start}
+.pedagog-card{background:var(--navy);border-radius:16px;padding:28px;color:#fff;text-align:center}
+.pedagog-avatar{width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.12);
+  border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-size:38px;margin:0 auto 14px}
+.pedagog-name{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:4px}
+.pedagog-role{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:18px}
+.pedagog-fact{background:rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;
+  text-align:left;margin-bottom:8px}
+.pedagog-fact-lbl{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em}
+.pedagog-fact-val{font-size:13px;color:#fff;margin-top:2px}
+
+/* tips / porady */
+.tip-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  transition:box-shadow .2s,transform .2s}
+.tip-card:hover{box-shadow:0 10px 28px var(--shadow);transform:translateY(-2px)}
+.tip-card-header{padding:20px 22px;background:var(--navy);display:flex;align-items:center;gap:14px;overflow:visible}
+.tip-card-header .tip-icon{font-size:26px;flex-shrink:0}
+.tip-card-header h3{font-family:'Playfair Display',serif;font-size:16px;color:#fff;line-height:1.3}
+.tip-card-body{padding:22px}
+.tip-card-body p{font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:12px}
+.tip-card-body p:last-child{margin-bottom:0}
+.tip-card-body ul{margin:8px 0 12px 20px}
+.tip-card-body ul li{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:5px}
+.tip-card-body strong{color:var(--navy)}
+.tip-card-body h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);
+  margin:18px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--gold-pale)}
+
+/* info grid */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;
+  transition:border-color .2s,box-shadow .2s}
+.info-card:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(200,150,42,.1)}
+.info-card-icon{font-size:26px;margin-bottom:10px}
+.info-card h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);margin-bottom:8px}
+.info-card p{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* section anchor offset for sticky header */
+.section-anchor{scroll-margin-top:80px}
+
+/* sidebar nav */
+.page-sidebar{position:sticky;top:90px;background:#fff;border:1px solid var(--border);
+  border-radius:14px;padding:22px}
+.page-sidebar h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);
+  margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--gold);display:inline-block}
+.sidebar-nav-link{display:flex;align-items:center;gap:9px;padding:9px 0;
+  border-bottom:1px solid var(--border);font-size:13.5px;color:var(--navy);
+  transition:color .2s;text-decoration:none}
+.sidebar-nav-link:last-child{border:none}
+.sidebar-nav-link:hover{color:var(--gold)}
+.sidebar-nav-link .snl-icon{font-size:15px;flex-shrink:0}
+
+/* librus highlight */
+.librus-box{background:var(--navy);border-radius:16px;padding:28px;
+  display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:32px}
+.librus-box h3{font-family:'Playfair Display',serif;font-size:18px;color:#fff;margin-bottom:6px}
+.librus-box p{font-size:13.5px;color:rgba(255,255,255,.6);margin-bottom:14px}
+
+@media(max-width:960px){
+  .parent-grid{grid-template-columns:repeat(2,1fr)}
+  .bells-grid{grid-template-columns:repeat(2,1fr)}
+  .pedagog-layout{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .page-layout{grid-template-columns:1fr}
+  .page-sidebar{display:none}
+}
+.page-layout{display:grid;grid-template-columns:1fr 240px;gap:40px;align-items:start}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-left"><span>SP nr 3 &middot; Brzeziny</span><span class="chip">&#127774; Do wakacji: 30 dni</span></div>
+  <div class="topbar-right"><a href="kontakt.html">Kontakt</a><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer">BIP</a><a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik</a><a href="https://login.microsoftonline.com/" target="_blank" rel="noopener noreferrer">Office 365</a></div>
+</div>
+<header><div class="header-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark" style="background:transparent;width:50px;height:50px">
+      <img src="img/logo-szkoly.png" alt="Logo SP3" style="width:50px;height:50px;object-fit:contain;border-radius:0">
+    </div>
+    <div class="logo-copy">
+      <strong>Szko&#322;a Podstawowa nr 3</strong>
+      <small>im. W&#322;adys&#322;awa Stanis&#322;awa Reymonta w Brzezinach</small>
+    </div>
+  </a>
+  <nav class="main-nav">
+  <a class="nav-link" href="aktualnosci.html">Aktualno&#347;ci</a>
+  <div class="nav-item"><a class="nav-link" href="o-nas.html">O nas &#9660;</a>
+    <div class="nav-dropdown"><div class="nav-dropdown-inner">
+      <a href="o-nas.html#historia">Historia szko&#322;y</a>
+      <a href="o-nas.html#patron">Patron &#8212; W.S. Reymont</a>
+      <a href="o-nas.html#samorzad">Samorz&#261;d Uczniowski</a>
+      <a href="o-nas.html#biblioteka">Biblioteka</a>
+      <a href="o-nas.html#zdrowie">Szko&#322;a Promuj&#261;ca Zdrowie</a>
+    </div></div>
+  </div>
+  <div class="nav-item"><a class="nav-link" href="zajecia.html">Zaj&#281;cia &#9660;</a>
+    <div class="nav-dropdown"><div class="nav-dropdown-inner">
+      <a href="zajecia.html">Zaj&#281;cia pozalekcyjne</a>
+      <a href="swietlica.html">&#346;wietlica szkolna</a>
+    </div></div>
+  </div>
+  <div class="nav-item"><a class="nav-link active" href="dla-rodzicow.html">Dla rodzic&#243;w &#9660;</a>
+    <div class="nav-dropdown"><div class="nav-dropdown-inner">
+      <a href="dla-rodzicow.html">Strona g&#322;&#243;wna</a>
+      <a href="dla-rodzicow.html#dzwonki">Plan dzwonek</a>
+      <a href="dla-rodzicow.html#podreczniki">Podr&#281;czniki</a>
+      <a href="dla-rodzicow.html#dokumenty">Dokumenty</a>
+      <a href="dla-rodzicow.html#stolowka">Sto&#322;&#243;wka</a>
+      <a href="dla-rodzicow.html#pedagog">Pedagog</a>
+      <a href="dla-rodzicow.html#konsultacje">Konsultacje</a>
+      <a href="dla-rodzicow.html#porady">Porady dla rodzic&#243;w</a>
+    </div></div>
+  </div>
+  <a class="nav-link" href="projekty.html">Projekty</a>
+  <a class="nav-link" href="rekrutacja.html">Rekrutacja</a>
+  <a class="nav-link" href="kontakt.html">Kontakt</a>
+  <a class="nav-link nav-cta" href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik &rarr;</a>
+</nav>
+  <button class="hamburger" aria-label="Otwórz menu nawigacji" onclick="document.getElementById('mobileNav').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':''">
+    <span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-nav" id="mobileNav">
+  <span class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow=''">&#10005;</span>
+  <a href="index.html">&#127968; Strona g&#322;&#243;wna</a>
+  <a href="aktualnosci.html">&#128240; Aktualno&#347;ci</a>
+  <a href="o-nas.html">&#127979; O nas</a>
+  <a href="zajecia.html">&#127917; Zaj&#281;cia pozalekcyjne</a>
+  <a href="swietlica.html" class="sub">&#346;wietlica</a>
+  <a href="dla-rodzicow.html">&#128106; Dla rodzic&#243;w</a>
+  <a href="dla-rodzicow.html#dzwonki" class="sub">Plan dzwonk&#243;w</a>
+  <a href="dla-rodzicow.html#pedagog" class="sub">Pedagog</a>
+  <a href="dla-rodzicow.html#porady" class="sub">Porady</a>
+  <a href="projekty.html">&#128203; Projekty</a>
+  <a href="rekrutacja.html">&#128221; Rekrutacja</a>
+  <a href="kontakt.html">&#128222; Kontakt</a>
+  <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:700">&#128216; e-Dziennik Librus</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Strona g&#322;&#243;wna</a>
+      <span>/ Dla rodzic&#243;w</span>
+    </div>
+    <h1>Dla <em>rodzic&#243;w</em></h1>
+    <p>Wszystko czego potrzebujesz &#8212; plan dzwonk&#243;w, podr&#281;czniki, dokumenty, kontakt z pedagogiem i praktyczne porady wychowawcze.</p>
+  </div>
+</div>
+
+<!-- LIBRUS HIGHLIGHT -->
+<div style="background:var(--cream);border-bottom:1px solid var(--border);padding:20px 0">
+  <div class="container">
+    <div class="librus-box">
+      <div style="font-size:42px;flex-shrink:0">&#128216;</div>
+      <div style="flex:1">
+        <h3>e-Dziennik Librus</h3>
+        <p>Oceny, frekwencja, wiadomo&#347;ci od nauczycieli &#8212; dost&#281;pne przez przegl&#261;dark&#281; i aplikacj&#281; mobiln&#261;.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">Wejd&#378; do e-dziennika &rarr;</a>
+          <a href="https://login.microsoftonline.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)">&#9729;&#65039; Office 365</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="page-layout">
+
+      <!-- CONTENT AREA -->
+      <div>
+
+        <!-- TABS NAVIGATION -->
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-tab="start"     onclick="showTab('start')">Strona g&#322;&#243;wna</button>
+          <button class="tab-btn"        data-tab="dzwonki"   onclick="showTab('dzwonki')">&#128276; Plan dzwonk&#243;w</button>
+          <button class="tab-btn"        data-tab="podreczniki" onclick="showTab('podreczniki')">&#128217; Podr&#281;czniki</button>
+          <button class="tab-btn"        data-tab="dokumenty" onclick="showTab('dokumenty')">&#128203; Dokumenty</button>
+          <button class="tab-btn"        data-tab="stolowka"  onclick="showTab('stolowka')">&#127869; Sto&#322;&#243;wka</button>
+          <button class="tab-btn"        data-tab="pedagog"   onclick="showTab('pedagog')">&#129309; Pedagog</button>
+          <button class="tab-btn"        data-tab="konsultacje" onclick="showTab('konsultacje')">&#128172; Konsultacje</button>
+          <button class="tab-btn"        data-tab="porady"    onclick="showTab('porady')">&#128218; Porady</button>
+        </div>
+
+        <!-- ═══ TAB: START ═══ -->
+        <div class="tab-panel active" id="tab-start">
+          <span class="eyebrow">Szybki dost&#281;p</span>
+          <h2 class="section-title" style="margin-bottom:28px">Wszystko <em>w jednym miejscu</em></h2>
+          <div class="parent-grid">
+            <a href="#" onclick="showTab('dzwonki');return false" class="parent-card">
+              <span class="parent-card-icon">&#128276;</span>
+              <h3>Plan dzwonk&#243;w</h3>
+              <p>Godziny lekcji i przerw w roku szkolnym 2025/2026</p>
+            </a>
+            <a href="#" onclick="showTab('podreczniki');return false" class="parent-card">
+              <span class="parent-card-icon">&#128217;</span>
+              <h3>Podr&#281;czniki</h3>
+              <p>Lista obowi&#261;zuj&#261;cych podr&#281;cznik&#243;w na rok szkolny</p>
+            </a>
+            <a href="#" onclick="showTab('dokumenty');return false" class="parent-card">
+              <span class="parent-card-icon">&#128203;</span>
+              <h3>Dokumenty</h3>
+              <p>Statut, regulaminy, wnioski i wa&#380;ne pisma</p>
+            </a>
+            <a href="#" onclick="showTab('stolowka');return false" class="parent-card">
+              <span class="parent-card-icon">&#127869;</span>
+              <h3>Sto&#322;&#243;wka</h3>
+              <p>Godziny, cennik i przyk&#322;adowy jad&#322;ospis</p>
+            </a>
+            <a href="#" onclick="showTab('pedagog');return false" class="parent-card">
+              <span class="parent-card-icon">&#129309;</span>
+              <h3>Pedagog</h3>
+              <p>mgr Aldona Nawrocka &#8212; godziny przyj&#281;&#263; i zakres pomocy</p>
+            </a>
+            <a href="#" onclick="showTab('konsultacje');return false" class="parent-card">
+              <span class="parent-card-icon">&#128172;</span>
+              <h3>Konsultacje</h3>
+              <p>Terminy dy&#380;ur&#243;w nauczycielskich</p>
+            </a>
+            <a href="#" onclick="showTab('porady');return false" class="parent-card">
+              <span class="parent-card-icon">&#128218;</span>
+              <h3>Porady dla rodzic&#243;w</h3>
+              <p>Materia&#322;y i artyku&#322;y dla rodzic&#243;w</p>
+            </a>
+            <a href="https://sp3brzeziny.wikom.pl/strona/dodatkowe-dni-wolne" target="_blank" rel="noopener noreferrer" class="parent-card">
+              <span class="parent-card-icon">&#128197;</span>
+              <h3>Dni wolne</h3>
+              <p>Dodatkowe dni wolne od zaj&#281;&#263; w roku szkolnym</p>
+            </a>
+          </div>
+
+          <!-- dyrektor info -->
+          <div style="margin-top:36px;background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:28px">
+            <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:16px">&#127979; Dyrekcja szko&#322;y</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div style="padding:14px 18px;background:#fff;border-radius:10px;border:1px solid var(--border)">
+                <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Dyrektor</div>
+                <div style="font-size:15px;font-weight:600;color:var(--navy)">Jolanta Nielepkowicz</div>
+              </div>
+              <div style="padding:14px 18px;background:#fff;border-radius:10px;border:1px solid var(--border)">
+                <div style="font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Wicedyrektor</div>
+                <div style="font-size:15px;font-weight:600;color:var(--navy)">Weronika Sikorska</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ TAB: DZWONKI ═══ -->
+        <div class="tab-panel" id="tab-dzwonki">
+          <span class="eyebrow">Organizacja dnia</span>
+          <h2 class="section-title" style="margin-bottom:8px">Plan <em>dzwonk&#243;w</em></h2>
+          <p style="color:var(--muted);font-size:14.5px;margin-bottom:28px">Godziny zaj&#281;&#263; lekcyjnych i przerw obowi&#261;zuj&#261;ce w SP nr 3 w Brzezinach w roku szkolnym 2025/2026.</p>
+          <div class="bells-grid">
+            <div class="bell-row">
+              <div class="bell-num zero">0</div>
+              <div><div class="bell-time">7:25 &#8211; 8:10</div><div class="bell-dur">45 min &middot; lekcja zerowa</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">1</div>
+              <div><div class="bell-time">8:15 &#8211; 9:00</div><div class="bell-dur">45 min &middot; przerwa 10 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">2</div>
+              <div><div class="bell-time">9:10 &#8211; 9:55</div><div class="bell-dur">45 min &middot; przerwa 10 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">3</div>
+              <div><div class="bell-time">10:05 &#8211; 10:50</div><div class="bell-dur">45 min &middot; przerwa 10 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">4</div>
+              <div><div class="bell-time">11:00 &#8211; 11:45</div><div class="bell-dur">45 min &middot; przerwa 15 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">5</div>
+              <div><div class="bell-time">12:00 &#8211; 12:45</div><div class="bell-dur">45 min &middot; przerwa 15 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">6</div>
+              <div><div class="bell-time">13:00 &#8211; 13:45</div><div class="bell-dur">45 min &middot; przerwa 10 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">7</div>
+              <div><div class="bell-time">13:55 &#8211; 14:40</div><div class="bell-dur">45 min &middot; przerwa 10 min</div></div>
+            </div>
+            <div class="bell-row">
+              <div class="bell-num">8</div>
+              <div><div class="bell-time">14:50 &#8211; 15:35</div><div class="bell-dur">45 min</div></div>
+            </div>
+          </div>
+          <div style="margin-top:28px;padding:16px 20px;background:var(--gold-pale);border:1px solid var(--gold);border-radius:10px;font-size:13.5px;color:var(--navy)">
+            &#128276; Lekcja 0 (godz. 7:25) odbywa si&#281; tylko dla klas, kt&#243;re maj&#261; j&#261; w planie. Przerwy obiadowe uwzgl&#281;dniaj&#261; czas wyj&#347;cia do sto&#322;&#243;wki.
+          </div>
+        </div>
+
+        <!-- ═══ TAB: PODRĘCZNIKI ═══ -->
+        <div class="tab-panel" id="tab-podreczniki">
+          <span class="eyebrow">Rok szkolny 2025/2026</span>
+          <h2 class="section-title" style="margin-bottom:8px">Lista <em>podr&#281;cznik&#243;w</em></h2>
+          <p style="color:var(--muted);font-size:14.5px;margin-bottom:20px">&#9888;&#65039; Poni&#380;sza lista ma charakter pogl&#261;dowy. Dokladn&#261; list&#281; wydaje wychowawca klasy na pocz&#261;tku roku szkolnego.</p>
+          <table class="tb-table">
+            <thead><tr><th>Klasa</th><th>Przedmiot</th><th>Tytu&#322; / Seria</th><th>Wydawnictwo</th></tr></thead>
+            <tbody>
+              <tr><td>Kl. I&#8211;III</td><td>Edukacja wczesnoszkolna</td><td>Razem w szkole / Nasz elementarz</td><td>WSiP / MEN</td></tr>
+              <tr><td>Kl. IV&#8211;VIII</td><td>J&#281;zyk polski</td><td>Mi&#281;dzy nami / S&#322;owa na start</td><td>GWO / Operon</td></tr>
+              <tr><td>Kl. IV&#8211;VIII</td><td>Matematyka</td><td>Matematyka z plusem</td><td>GWO</td></tr>
+              <tr><td>Kl. IV&#8211;VIII</td><td>J&#281;zyk angielski</td><td>New English Adventure / Repetytorium</td><td>Pearson / Longman</td></tr>
+              <tr><td>Kl. IV&#8211;VIII</td><td>Historia</td><td>Historia wok&#243;&#322; nas</td><td>Nowa Era</td></tr>
+              <tr><td>Kl. IV&#8211;VIII</td><td>Przyroda / Biologia</td><td>Puls &#380;ycia</td><td>Nowa Era</td></tr>
+              <tr><td>Kl. V&#8211;VIII</td><td>Chemia</td><td>To jest chemia</td><td>Nowa Era</td></tr>
+              <tr><td>Kl. V&#8211;VIII</td><td>Fizyka</td><td>Spotkania z fizyk&#261;</td><td>Nowa Era</td></tr>
+              <tr><td>Kl. VI&#8211;VIII</td><td>Geografia</td><td>Oblicza geografii</td><td>Nowa Era</td></tr>
+              <tr><td>Kl. VII&#8211;VIII</td><td>WOS</td><td>Wiedza o spo&#322;ecze&#324;stwie</td><td>Operon</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ═══ TAB: DOKUMENTY ═══ -->
+        <div class="tab-panel" id="tab-dokumenty">
+          <span class="eyebrow">Do pobrania</span>
+          <h2 class="section-title" style="margin-bottom:28px">Dokumenty <em>szkolne</em></h2>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128196;</span><div><div class="doc-title">Statut Szko&#322;y Podstawowej nr 3</div><div class="doc-desc">Podstawowy dokument reguluj&#261;cy dzia&#322;alno&#347;&#263; szko&#322;y</div></div></div><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Pobierz</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128203;</span><div><div class="doc-title">Program Wychowawczo-Profilaktyczny</div><div class="doc-desc">Cele i dzia&#322;ania wychowawcze szko&#322;y</div></div></div><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Pobierz</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128221;</span><div><div class="doc-title">Karta zapisu do &#347;wietlicy</div><div class="doc-desc">Wniosek o przyj&#281;cie dziecka do &#347;wietlicy szkolnej</div></div></div><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Pobierz</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128202;</span><div><div class="doc-title">Zasady Oceniania (WZO)</div><div class="doc-desc">Wewn&#261;trzszkolne zasady oceniania uczni&#243;w</div></div></div><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Pobierz</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128274;</span><div><div class="doc-title">Ochrona Danych Osobowych (RODO)</div><div class="doc-desc">Informacje o przetwarzaniu danych osobowych</div></div></div><a href="rodo.html" class="btn btn-outline btn-sm">Czytaj</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128240;</span><div><div class="doc-title">Regulamin korzystania z biblioteki</div><div class="doc-desc">Zasady wypo&#380;yczania i zwrotu ksi&#261;&#380;ek</div></div></div><a href="o-nas.html#biblioteka" class="btn btn-outline btn-sm">Czytaj</a></div>
+          <div class="doc-row"><div class="doc-info"><span class="doc-icon">&#128209;</span><div><div class="doc-title">Regulamin &#347;wietlicy szkolnej</div><div class="doc-desc">Zasady korzystania ze &#347;wietlicy i odbioru uczni&#243;w</div></div></div><a href="swietlica.html" class="btn btn-outline btn-sm">Czytaj</a></div>
+          <div style="margin-top:20px;text-align:center">
+            <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="btn btn-navy">Wszystkie dokumenty w BIP &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ═══ TAB: STOŁÓWKA ═══ -->
+        <div class="tab-panel" id="tab-stolowka">
+          <span class="eyebrow">Wy&#380;ywienie</span>
+          <h2 class="section-title" style="margin-bottom:24px">Sto&#322;&#243;wka <em>szkolna</em></h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+            <div>
+              <table class="info-table" style="margin-bottom:24px">
+                <tr><th>Godziny wydawania</th><td><strong>11:30 &#8211; 13:30</strong></td></tr>
+                <tr><th>Cena obiadu</th><td>Wed&#322;ug aktualnego cennika</td></tr>
+                <tr><th>Zapisy</th><td>Sekretariat szko&#322;y</td></tr>
+                <tr><th>Odwo&#322;ywanie</th><td>Do godz. 8:00 danego dnia</td></tr>
+                <tr><th>Dofinansowanie</th><td>Mo&#380;liwe z MOPS &#8212; info w sekretariacie</td></tr>
+              </table>
+              <div style="background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px">
+                <h4 style="font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);margin-bottom:12px">Zasady korzystania</h4>
+                <ul style="margin-left:18px;font-size:13.5px;color:var(--muted);line-height:1.7">
+                  <li>Obiady zamawiamy z g&#243;ry &#8212; miesi&#281;cznie lub tygodniowo</li>
+                  <li>Nieobecno&#347;&#263; nale&#380;y zg&#322;osi&#263; do godz. 8:00</li>
+                  <li>Na sto&#322;&#243;wce obowi&#261;zuje kulturalne zachowanie</li>
+                  <li>Uczniowie sprz&#261;taj&#261; po sobie tace i naczynia</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:14px">Przyk&#322;adowy jad&#322;ospis</h3>
+              <div class="jadlospis">
+                <div class="jadlo-row"><div class="jadlo-day">Poniedzia&#322;ek</div><div class="jadlo-meal">Zupa pomidorowa, makaron, kotlet schabowy, ziemniaki, sur&#243;wka</div></div>
+                <div class="jadlo-row"><div class="jadlo-day">Wtorek</div><div class="jadlo-meal">Ros&#243;&#322; z makaronem, pierogi ruskie, sur&#243;wka z kapusty</div></div>
+                <div class="jadlo-row"><div class="jadlo-day">&#346;roda</div><div class="jadlo-meal">&#379;urek, gulasz wieprzowy, kasza gryczana, buraczki</div></div>
+                <div class="jadlo-row"><div class="jadlo-day">Czwartek</div><div class="jadlo-meal">Zupa og&#243;rkowa, ryba po grecku, ry&#380;, kompot</div></div>
+                <div class="jadlo-row"><div class="jadlo-day">Pi&#261;tek</div><div class="jadlo-meal">Zupa grochowa, nale&#347;niki z serem, herbata</div></div>
+              </div>
+              <p style="font-size:11.5px;color:var(--muted);margin-top:10px">&#42; Jad&#322;ospis poglądowy. Aktualny plan dostępny w stołówce i e-dzienniku.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ TAB: PEDAGOG ═══ -->
+        <div class="tab-panel" id="tab-pedagog">
+          <span class="eyebrow">Wsparcie szkolne</span>
+          <h2 class="section-title" style="margin-bottom:28px">Pedagog <em>szkolny</em></h2>
+          <div class="pedagog-layout">
+            <div class="pedagog-card">
+              <div class="pedagog-avatar">&#129309;</div>
+              <div class="pedagog-name">mgr Aldona Nawrocka</div>
+              <div class="pedagog-role">Pedagog szkolny SP nr 3</div>
+              <div class="pedagog-fact">
+                <div class="pedagog-fact-lbl">Godziny przyj&#281;&#263;</div>
+                <div class="pedagog-fact-val">Wt, Czw: 8:00&#8211;14:00<br>Inny termin: po uzgodnieniu</div>
+              </div>
+              <div class="pedagog-fact">
+                <div class="pedagog-fact-lbl">Pokój</div>
+                <div class="pedagog-fact-val">Sekretariat &#8212; pok&#243;j pedagoga</div>
+              </div>
+              <div class="pedagog-fact">
+                <div class="pedagog-fact-lbl">Kontakt</div>
+                <div class="pedagog-fact-val"><a href="tel:468742442" style="color:var(--gold-light)">46 874-24-42</a></div>
+              </div>
+              <a href="tel:468742442" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:14px;font-size:13px">&#128222; Zadzwo&#324; do szko&#322;y</a>
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);margin-bottom:12px">Czym zajmuje si&#281; pedagog?</h3>
+              <p style="font-size:14.5px;color:var(--muted);line-height:1.8;margin-bottom:16px">Pedagog szkolny pe&#322;ni kluczow&#261; rol&#281; w zapewnieniu prawid&#322;owego funkcjonowania uczni&#243;w w &#347;rodowisku szkolnym. Wspiera uczni&#243;w, rodzic&#243;w i nauczycieli w rozwi&#261;zywaniu problem&#243;w wychowawczych i dydaktycznych.</p>
+              <div class="info-grid" style="margin-bottom:20px">
+                <div class="info-card"><div class="info-card-icon">&#128269;</div><h4>Diagnoza i ocena</h4><p>Rozpoznawanie indywidualnych potrzeb uczni&#243;w i analiza przyczyn niepowodze&#324; szkolnych.</p></div>
+                <div class="info-card"><div class="info-card-icon">&#129309;</div><h4>Pomoc i wsparcie</h4><p>Organizowanie r&#243;&#380;nych form pomocy psychologiczno-pedagogicznej dla uczni&#243;w i rodzin.</p></div>
+                <div class="info-card"><div class="info-card-icon">&#128101;</div><h4>Wsp&#243;&#322;praca</h4><p>Wsp&#243;&#322;praca z rodzicami, nauczycielami i poradni&#261; psychologiczno-pedagogiczn&#261;.</p></div>
+              </div>
+              <div style="background:var(--cream);border-left:4px solid var(--gold);padding:16px 20px;border-radius:0 10px 10px 0">
+                <p style="font-size:14px;color:var(--navy);margin:0"><strong>Kiedy si&#281; zg&#322;osi&#263;?</strong> Gdy dziecko ma trudno&#347;ci w nauce, problemy w relacjach z r&#243;wie&#347;nikami, prze&#380;ywa trudne sytuacje &#380;yciowe lub gdy rodzic potrzebuje wsparcia i porady wychowawczej. <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:600">Pomoc i wsparcie &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ TAB: KONSULTACJE ═══ -->
+        <div class="tab-panel" id="tab-konsultacje">
+          <span class="eyebrow">Kontakt z nauczycielami</span>
+          <h2 class="section-title" style="margin-bottom:24px">Konsultacje <em>z nauczycielami</em></h2>
+          <p style="font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:32px">Konsultacje to czas przeznaczony na indywidualne spotkania rodzic&#243;w z nauczycielami. Pozwalaj&#261; om&#243;wi&#263; post&#281;py w nauce, frekwencj&#281; i wszelkie kwestie dotycz&#261;ce edukacji dziecka.</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px">
+              <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px">&#128197; Terminy konsultacji</h4>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.65">Harmonogram konsultacji dost&#281;pny jest u wychowawcy klasy i w sekretariacie szko&#322;y. Konsultacje odbywaj&#261; si&#281; zgodnie z planem ustalonym na pocz&#261;tku roku szkolnego.</p>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px">
+              <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px">&#128222; Jak si&#281; um&#243;wi&#263;?</h4>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.65">Termin mo&#380;na ustali&#263; telefonicznie pod numerem <a href="tel:468742442" style="color:var(--gold);font-weight:600">46 874-24-42</a>, przez e-dziennik Librus lub bezpo&#347;rednio z nauczycielem po lekcjach.</p>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px">
+              <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px">&#127979; Rada Rodzic&#243;w</h4>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.65">Rada Rodzic&#243;w reprezentuje wszystkich rodzic&#243;w uczni&#243;w szko&#322;y. Uczestniczy w opracowaniu programu wychowawczego i opiniuje decyzje dyrekcji.</p>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px">
+              <h4 style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:10px">&#128172; Zebrania rodzic&#243;w</h4>
+              <p style="font-size:13.5px;color:var(--muted);line-height:1.65">Zebrania z rodzicami odbywaj&#261; si&#281; 3&#8211;4 razy w roku szkolnym. Terminy og&#322;aszane s&#261; z wyprzedzeniem przez wychowawc&#243;w przez e-dziennik.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ TAB: PORADY ═══ -->
+        <div class="tab-panel" id="tab-porady">
+          <span class="eyebrow">Materia&#322;y pedagogiczne</span>
+          <h2 class="section-title" style="margin-bottom:8px">Porady <em>dla rodzic&#243;w</em></h2>
+          <p style="font-size:14.5px;color:var(--muted);margin-bottom:32px">Artyku&#322;y i wskazówki przygotowane przez pedagoga szkolnego SP nr 3 w Brzezinach.</p>
+
+          <!-- ARTYKUŁ 1: NAGRODY I KARY -->
+          <div class="tip-card" style="margin-bottom:24px">
+            <div class="tip-card-header">
+              <span class="tip-icon">&#127942;</span>
+              <h3>Stosowanie nagr&#243;d i kar w wychowaniu dziecka</h3>
+            </div>
+            <div class="tip-card-body">
+              <p>Wychowanie dziecka to jedna z najtrudniejszych r&#243;l, jak&#261; otrzymuj&#261; rodzice. To oni odpowiadaj&#261; za przygotowanie go do &#380;ycia i wprowadzanie w &#347;wiat doros&#322;ych. Wychowuj&#261; dziecko przede wszystkim w spos&#243;b naturalny poprzez stopniowe wdra&#380;anie form zachowania. Do prawid&#322;owego przebiegu tego procesu potrzebna jest szczeg&#243;lna organizacja &#380;ycia rodzinnego oraz odpowiedni klimat, kt&#243;ry tworzy wzajemna mi&#322;o&#347;&#263;, poczucie bezpiecze&#324;stwa i przywi&#261;zanie.</p>
+              <h4>Kara</h4>
+              <p>Kara jest wszystkim tym, co sprawia dziecku przykro&#347;&#263;, budzi niezadowolenie, utrudnia zaspokojenie potrzeb. Kara jest metod&#261;, kt&#243;ra nie uczy nowych zachowa&#324; &#8212; nie daje dziecku nic w zamian. Stosowanie kary ma miejsce wówczas, gdy zawodz&#261; inne &#347;rodki oddzia&#322;ywania.</p>
+              <p><strong>Wobec niepos&#322;usznego dziecka mo&#380;na stosowa&#263;:</strong></p>
+              <ul>
+                <li>dezaprobat&#281; wyra&#380;on&#261; s&#322;owem lub gestem</li>
+                <li>upomnienie s&#322;owne udzielane zdecydowanym tonem</li>
+                <li>wym&#243;wk&#281; lub nagan&#281; z wyra&#378;nym om&#243;wieniem przyczyn</li>
+                <li>odosobnienie &#8212; stosujemy wyj&#261;tkowo i tylko w stosunku do dzieci starszych</li>
+              </ul>
+              <p><strong>Uwaga:</strong> Przemoc fizyczna w stosunku do dzieci jest &#347;rodkiem antywychowawczym. Poni&#380;a godno&#347;&#263; dziecka, budzi sk&#322;onno&#347;&#263; do okrucie&#324;stwa i agresji wobec os&#243;b s&#322;abszych.</p>
+              <h4>Nagroda</h4>
+              <p>Nagroda jest wszystkim tym, co sprawia dziecku przyjemno&#347;&#263;, budzi zadowolenie. Jej skuteczno&#347;&#263; nie zale&#380;y od warto&#347;ci materialnej prezentu, lecz od faktu czy jest dowodem mi&#322;o&#347;ci rodzic&#243;w. Niew&#261;tpliwie najcenniejsz&#261; nagrod&#261; dla ka&#380;dego dziecka jest mi&#322;o&#347;&#263; rodzic&#243;w.</p>
+              <p><strong>Najwa&#380;niejsze rodzaje nagr&#243;d:</strong></p>
+              <ul>
+                <li>okazywanie uczucia mi&#322;o&#347;ci i rado&#347;ci, uznanie s&#322;owne</li>
+                <li>darzenie zaufaniem</li>
+                <li>przywileje i nagrody rzeczowe</li>
+              </ul>
+              <h4>Rady na podsumowanie</h4>
+              <ul>
+                <li>Najskuteczniejszy jest uk&#322;ad: silne nagradzanie i s&#322;abe kary.</li>
+                <li>Je&#380;eli stosowanie kar jest konieczne &#8212; nale&#380;y &#322;&#261;czy&#263; je z nagrod&#261;.</li>
+                <li>Wa&#380;nym warunkiem skuteczno&#347;ci nagradzania i karania jest akceptacja przez dziecko osoby nagradzaj&#261;cej czy karc&#261;cej.</li>
+                <li>Pami&#281;tajmy o zasadzie indywidualizacji &#8212; ka&#380;de dziecko jest inne.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ARTYKUŁ 2: WIARA W SIEBIE -->
+          <div class="tip-card" style="margin-bottom:24px">
+            <div class="tip-card-header">
+              <span class="tip-icon">&#11088;</span>
+              <h3>Jak rozwijać wiarę w siebie u dziecka</h3>
+            </div>
+            <div class="tip-card-body">
+              <p>Wiara w siebie u dziecka jest budowana stopniowo, w toku do&#347;wiadcze&#324; &#380;yciowych &#8212; zar&#243;wno poprzez sukcesy, jak i pora&#380;ki. Rodzice odgrywaj&#261; w tym procesie ogromnie wa&#380;n&#261; rol&#281;: pomagaj&#261; dzieciom zrozumie&#263; przyczyny tych pora&#380;ek i sukces&#243;w, zach&#281;caj&#261; do wytrwa&#322;o&#347;ci.</p>
+              <p>Podej&#347;cie rodzica powinno by&#263; dalekie od os&#261;dzania, pe&#322;ne &#380;yczliwo&#347;ci, cierpliwo&#347;ci i uwagi &#8212; a jednocze&#347;nie u&#347;wiadamiaj&#261;ce dziecku, &#380;e <strong>wolno mu pope&#322;nia&#263; b&#322;&#281;dy!</strong> Pomo&#380;e mu to rozwin&#261;&#263; odwag&#281; i wytrzyma&#322;o&#347;&#263;.</p>
+              <h4>Propozycja zabaw do wykorzystania z dzie&#263;mi w domu</h4>
+              <p><strong>Album ze zdj&#281;ciami:</strong></p>
+              <ul>
+                <li>Wybierz z dzieckiem zdj&#281;cia od okresu narodzin do dzi&#347;.</li>
+                <li>Umie&#347;&#263; fotografie wa&#380;nych dla dziecka wydarze&#324; i oznacz je kolorowymi ta&#347;iemkami: zielona &#8212; przyjemne chwile, bia&#322;a &#8212; smutne wydarzenie, czerwona &#8212; wspania&#322;e wspomnienie.</li>
+                <li>Rozmawia&#263; o zdj&#281;ciach, nazywa&#263; uczucia i emocje, opowiada&#263; o tym, co si&#281; dzia&#322;o.</li>
+              </ul>
+              <p>Powi&#281;caj&#261;c uwag&#281; i czas na poznawanie swojego dziecka, towarzysz&#261;c mu w rozwoju &#8212; jednocze&#347;nie rozwijacie adekwatn&#261; samoocen&#281;: dziecko zna swoj&#261; warto&#347;&#263;, uczy si&#281; patrze&#263; na siebie pozytywnie.</p>
+            </div>
+          </div>
+
+          <!-- ARTYKUŁ 3: POMOC PSYCHOLOGICZNA -->
+          <div class="tip-card">
+            <div class="tip-card-header">
+              <span class="tip-icon">&#128161;</span>
+              <h3>Pomoc i wsparcie &#8212; gdzie szuka&#263; pomocy?</h3>
+            </div>
+            <div class="tip-card-body">
+              <p>Kiedy dziecko lub rodzic potrzebuje wsparcia psychologicznego lub specjalistycznej pomocy, warto wiedzie&#263;, gdzie mo&#380;na j&#261; uzyska&#263;.</p>
+              <h4>W szkole</h4>
+              <ul>
+                <li><strong>Pedagog szkolny</strong> &#8212; mgr Aldona Nawrocka (gabinet pedagoga, wt. i czw. 8&#8211;14)</li>
+                <li><strong>Wychowawca klasy</strong> &#8212; pierwszy kontakt w sprawach szkolnych</li>
+                <li><strong>Dyrekcja szko&#322;y</strong> &#8212; w sprawach wymagaj&#261;cych decyzji administracyjnych</li>
+              </ul>
+              <h4>Poza szko&#322;&#261;</h4>
+              <ul>
+                <li><strong>Poradnia Psychologiczno-Pedagogiczna w Brzezinach</strong> &#8212; bezp&#322;atna pomoc dla uczni&#243;w i rodzic&#243;w</li>
+                <li><strong>Centrum Zdrowia Psychicznego</strong> &#8212; w trudnych sytuacjach kryzysowych</li>
+                <li><strong>Telefon Zaufania dla Dzieci i M&#322;odzie&#380;y: 116 111</strong> &#8212; bezp&#322;atny, czynny ca&#322;&#261; dob&#281;</li>
+                <li><strong>Telefon dla Rodzic&#243;w i Nauczycieli: 800 100 100</strong> &#8212; bezp&#322;atny</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /content area -->
+
+      <!-- SIDEBAR -->
+      <div>
+        <div class="page-sidebar">
+          <h4>Nawigacja</h4>
+          <a href="#" onclick="showTab('start');return false" class="sidebar-nav-link"><span class="snl-icon">&#127968;</span>Strona g&#322;&#243;wna</a>
+          <a href="#" onclick="showTab('dzwonki');return false" class="sidebar-nav-link"><span class="snl-icon">&#128276;</span>Plan dzwonk&#243;w</a>
+          <a href="#" onclick="showTab('podreczniki');return false" class="sidebar-nav-link"><span class="snl-icon">&#128217;</span>Podr&#281;czniki</a>
+          <a href="#" onclick="showTab('dokumenty');return false" class="sidebar-nav-link"><span class="snl-icon">&#128203;</span>Dokumenty</a>
+          <a href="#" onclick="showTab('stolowka');return false" class="sidebar-nav-link"><span class="snl-icon">&#127869;</span>Sto&#322;&#243;wka</a>
+          <a href="#" onclick="showTab('pedagog');return false" class="sidebar-nav-link"><span class="snl-icon">&#129309;</span>Pedagog</a>
+          <a href="#" onclick="showTab('konsultacje');return false" class="sidebar-nav-link"><span class="snl-icon">&#128172;</span>Konsultacje</a>
+          <a href="#" onclick="showTab('porady');return false" class="sidebar-nav-link"><span class="snl-icon">&#128218;</span>Porady</a>
+        </div>
+
+        <div style="background:var(--navy);border-radius:14px;padding:22px;margin-top:18px;color:#fff;text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:14px;margin-bottom:6px">Do wakacji</div>
+          <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--gold-light);line-height:1">30</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.5)">dni</div>
+        </div>
+
+        <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:18px">
+          <h4 style="font-family:'Playfair Display',serif;font-size:14px;color:var(--navy);margin-bottom:12px">Sekretariat</h4>
+          <div style="font-size:13px;color:var(--muted);line-height:1.8">
+            <div>&#128222; <a href="tel:468742442" style="color:var(--navy);font-weight:600">46 874-24-42</a></div>
+            <div>&#128222; <a href="tel:515579998" style="color:var(--navy)">515 579 998</a></div>
+            <div style="margin-top:6px">&#9200; Pon&#8211;Pt: 7:30&#8211;15:30</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-layout -->
+  </div><!-- /container -->
+</section>
+
+<div class="info-strip">&#128222; Masz pytania? Zadzwo&#324;: <a href="tel:468742442">46 874-24-42</a> &nbsp;|&nbsp; <a href="mailto:sekretariat@sp3brzeziny.edu.pl">sekretariat@sp3brzeziny.edu.pl</a></div>
+<footer><div class="footer-inner">
+  <div class="footer-brand">
+    <strong>Szko&#322;a Podstawowa nr 3 im. W&#322;adys&#322;awa Stanis&#322;awa Reymonta w Brzezinach</strong>
+    <p>ul. Bohater&#243;w Warszawy 4, 95-060 Brzeziny<br>tel. 46 874-24-42 &middot; sekretariat@sp3brzeziny.edu.pl</p>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/Szko%C5%82a-Podstawowa-nr-3-im-W%C5%82adys%C5%82awa-St-Reymonta-w-Brzezinach-350716169451462" target="_blank" rel="noopener noreferrer" class="social-btn">&#128226;</a>
+      <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" class="social-btn">&#128216;</a>
+      <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="social-btn">&#128196;</a>
+    </div>
+  </div>
+  <div class="footer-col"><h5>O szkole</h5>
+    <a href="o-nas.html#historia">Historia</a><a href="o-nas.html#patron">Patron</a>
+    <a href="o-nas.html#samorzad">Samorz&#261;d</a><a href="o-nas.html#biblioteka">Biblioteka</a>
+  </div>
+  <div class="footer-col"><h5>Zasoby</h5>
+    <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik</a>
+    <a href="dla-rodzicow.html#dokumenty">Dokumenty</a>
+    <a href="dla-rodzicow.html#podreczniki">Podr&#281;czniki</a>
+    <a href="rekrutacja.html">Rekrutacja</a>
+  </div>
+  <div class="footer-col"><h5>Prawne</h5>
+    <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer">BIP</a>
+    <a href="polityka-prywatnosci.html">Polityka prywatno&#347;ci</a>
+    <a href="deklaracja-dostepnosci.html">Dost&#281;pno&#347;&#263;</a>
+    <a href="rodo.html">RODO</a>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span>&#169; 2026 SP nr 3 im. W.S. Reymonta w Brzezinach</span>
+  <span>Szko&#322;a Podstawowa nr 3 w Brzezinach</span>
+</div></footer>
+<script>
+(function(){
+  // Tab switching
+  window.showTab = function(id) {
+    document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+    var panel = document.getElementById('tab-' + id);
+    if(panel) panel.classList.add('active');
+    document.querySelectorAll('.tab-btn[data-tab="' + id + '"]').forEach(function(b){b.classList.add('active')});
+  };
+  // Hash-based tab opening
+  function openFromHash() {
+    if(!location.hash) return;
+    var id = location.hash.replace('#','');
+    var panel = document.getElementById('tab-' + id);
+    if(panel) {
+      showTab(id);
+      setTimeout(function(){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+    } else {
+      // scroll to anchor directly
+      var el = document.getElementById(id);
+      if(el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 80);
+    }
+  }
+  if(location.hash) openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+  // Animate on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+    });
+  },{threshold:0.07});
+  document.querySelectorAll('.card,.parent-card,.info-card,.doc-row,.bell-row,.tip-card,.tl-item').forEach(function(el,i){
+    el.style.opacity='0'; el.style.transform='translateY(14px)';
+    el.style.transition='opacity .5s ease '+(i%8*0.06)+'s, transform .5s ease '+(i%8*0.06)+'s';
+    io.observe(el);
+  });
+})();
+</script>
+<script>
+(function(){
+  var target=new Date(2026,5,26);var today=new Date();today.setHours(0,0,0,0);
+  var days=Math.max(0,Math.ceil((target-today)/864e5));
+  var chip=document.querySelector('.chip');
+  if(chip&&chip.textContent.indexOf('wakacji')>-1)chip.textContent='🌞 Do wakacji: '+days+' dni';
+})();
+</script></body>
+</html>

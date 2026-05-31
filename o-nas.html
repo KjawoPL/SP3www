@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Szkoła Podstawowa nr 3 im. Władysława Stanisława Reymonta w Brzezinach — strona oficjalna">
+<title>SP nr 3 im. W.S. Reymonta w Brzezinach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="img/emblem.svg" type="image/svg+xml">
+<style>
+/* ════════════════════════════════════════════
+   SP3 BRZEZINY — SHARED DESIGN SYSTEM
+   Granat + Złoto · DM Sans + Playfair Display
+════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:        #0d1f3c;
+  --navy-mid:    #1a3157;
+  --navy-light:  #243d68;
+  --gold:        #c8962a;
+  --gold-light:  #e8b84b;
+  --gold-pale:   #f5e6c0;
+  --cream:       #faf7f2;
+  --warm-white:  #fffef9;
+  --text:        #1c1c1c;
+  --muted:       #6b7280;
+  --border:      #e5ddd0;
+  --shadow:      rgba(13,31,60,.10);
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   18px;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy);padding:6px 48px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.55)}
+.topbar a{color:rgba(255,255,255,.55);transition:color .2s}
+.topbar a:hover{color:var(--gold-light)}
+.topbar-left{display:flex;gap:20px;align-items:center}
+.topbar-right{display:flex;gap:20px}
+.chip{background:var(--gold);color:#fff;padding:2px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.03em}
+
+/* ── HEADER ── */
+header{background:rgba(250,247,242,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;backdrop-filter:blur(14px);overflow:visible}
+.header-inner{max-width:1240px;margin:0 auto;padding:8px 48px;display:flex;align-items:center;gap:20px;min-height:106px}
+.logo{display:flex;align-items:center;gap:14px;flex:1;overflow:visible}
+.logo-mark{display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;overflow:visible}
+.logo-mark::after{display:none}
+.logo-mark span{display:none}
+.logo-copy strong{display:block;font-family:'Playfair Display',serif;font-size:14.5px;color:var(--navy)}
+.logo-copy small{font-size:10.5px;color:var(--muted)}
+nav.main-nav{display:flex;align-items:center;gap:2px}
+.nav-item{position:relative}
+.nav-link{display:block;padding:8px 13px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--navy);transition:background .2s,color .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{background:var(--navy);color:#fff}
+.nav-dropdown{position:absolute;top:100%;left:0;padding-top:10px;background:transparent;min-width:240px;opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .2s,transform .2s;z-index:300}
+.nav-dropdown-inner{background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px;box-shadow:0 16px 40px var(--shadow)}
+.nav-item:hover .nav-dropdown,.nav-item:focus-within .nav-dropdown{opacity:1;pointer-events:all;transform:none}
+.nav-dropdown-inner a{display:block;padding:9px 14px;border-radius:8px;font-size:13px;color:var(--navy);transition:background .2s}
+.nav-dropdown-inner a:hover{background:var(--cream)}
+.nav-cta{background:var(--gold)!important;color:#fff!important;padding:9px 18px!important;font-weight:600!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:#fff;z-index:500;flex-direction:column;padding:48px 32px 32px;overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav-close{align-self:flex-end;font-size:28px;padding:4px 12px;color:var(--navy);cursor:pointer;margin-bottom:24px}
+.mobile-nav a{padding:14px 0;border-bottom:1px solid var(--border);font-size:16px;font-weight:500;color:var(--navy);display:block}
+.mobile-nav a.sub{padding-left:20px;font-size:14px;color:var(--muted)}
+
+/* ── LAYOUT ── */
+.container{max-width:1240px;margin:0 auto;padding:0 48px}
+.section{padding:80px 0}
+.section-sm{padding:56px 0}
+
+/* ── TYPE ── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:12px}
+.section-title em{font-style:normal;color:var(--gold)}
+.section-sub{font-size:15.5px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:40px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s;cursor:pointer}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid)}
+.btn-outline{border:2px solid var(--navy);color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-outline-gold{border:2px solid var(--gold);color:var(--gold)}
+.btn-outline-gold:hover{background:var(--gold);color:#fff}
+.btn-sm{padding:9px 18px;font-size:13px}
+
+/* ── CARD ── */
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px var(--shadow)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--navy);padding:64px 0;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(200,150,42,.2) 0%,transparent 70%)}
+.page-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.page-hero-content{position:relative;z-index:1}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px}
+.page-hero h1 em{font-style:normal;color:var(--gold-light)}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.6);line-height:1.75;max-width:540px}
+.breadcrumb{display:flex;gap:8px;align-items:center;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.breadcrumb a{color:rgba(255,255,255,.4);transition:color .2s}
+.breadcrumb a:hover{color:var(--gold-light)}
+.breadcrumb span{color:var(--gold)}
+
+/* ── INFO STRIP ── */
+.info-strip{background:var(--gold);padding:18px 48px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;color:#fff;font-weight:500}
+.info-strip a{color:#fff;font-weight:700}
+
+/* ── TABLES ── */
+.info-table{width:100%;border-collapse:collapse}
+.info-table tr{border-bottom:1px solid var(--border)}
+.info-table tr:last-child{border:none}
+.info-table th{text-align:left;padding:13px 16px;background:var(--cream);font-size:12.5px;font-weight:600;color:var(--navy);letter-spacing:.02em;width:42%}
+.info-table td{padding:13px 16px;font-size:13.5px;color:var(--muted)}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.tab-btn{padding:9px 20px;border-radius:9px;font-size:13.5px;font-weight:500;border:1.5px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+.tab-btn.active,.tab-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── SIDEBAR ── */
+.sidebar-widget{background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;margin-bottom:20px}
+.sidebar-widget h4{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--gold);display:inline-block}
+.sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--navy);transition:color .2s}
+.sidebar-link:last-child{border:none}
+.sidebar-link:hover{color:var(--gold)}
+
+/* ── PROSE ── */
+.prose h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin:28px 0 12px}
+.prose h3:first-child{margin-top:0}
+.prose p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.prose ul{margin:12px 0 16px 22px}
+.prose ul li{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:5px}
+.prose blockquote{border-left:4px solid var(--gold);padding:14px 20px;background:var(--cream);border-radius:0 10px 10px 0;margin:20px 0;font-style:italic;color:var(--navy)}
+
+/* ── DARK CARD ── */
+.dark-card{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md);padding:22px;margin-bottom:14px}
+.dark-card:last-child{margin-bottom:0}
+.dark-card h4{font-family:'Playfair Display',serif;font-size:15px;color:#fff;margin-bottom:5px}
+.dark-card p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:12px}
+.dark-card a{font-size:12.5px;color:var(--gold-light);font-weight:600}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.4);padding:48px 0 0}
+.footer-inner{max-width:1240px;margin:0 auto;padding:0 48px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand strong{font-family:'Playfair Display',serif;font-size:15px;color:#fff;display:block;margin-bottom:8px}
+.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:18px}
+.footer-social{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .2s}
+.social-btn:hover{background:var(--gold)}
+.footer-col h5{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);padding:5px 0;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);max-width:1240px;margin:0 auto;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.footer-bottom a{color:var(--gold-light)}
+
+/* ── UTILS ── */
+.bg-cream{background:var(--cream)}
+.mt-8{margin-top:32px}
+.mt-10{margin-top:40px}
+.mb-6{margin-bottom:24px}
+.center{text-align:center}
+.divider{height:1px;background:var(--border)}
+.pulse::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-light);display:inline-block;margin-right:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .topbar{padding:6px 20px}
+  .topbar-right{display:none}
+  .header-inner{max-width:1240px;margin:0 auto;padding:8px 48px;display:flex;align-items:center;gap:20px;min-height:106px}
+  nav.main-nav{display:none}
+  .hamburger{display:flex}
+  .container{padding:0 20px}
+  .footer-inner{grid-template-columns:1fr 1fr;padding:0 20px 32px}
+  .footer-bottom{flex-direction:column;gap:8px;padding:16px 20px;text-align:center}
+  .info-strip{padding:16px 20px;text-align:center;flex-direction:column;gap:4px}
+}
+
+
+/* ── HOME-SPECIFIC ── */
+.hero{background:var(--navy);min-height:580px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background-image:radial-gradient(circle at 78% 50%,rgba(200,150,42,.17) 0%,transparent 55%),radial-gradient(circle at 10% 80%,rgba(200,150,42,.08) 0%,transparent 40%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px}
+.hero-content{max-width:1240px;margin:0 auto;padding:90px 48px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,42,.18);border:1px solid rgba(200,150,42,.35);color:var(--gold-light);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:22px}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold-light);animation:pulse 2s infinite}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,4.5vw,56px);font-weight:900;color:#fff;line-height:1.08;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--gold-light)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.62);line-height:1.75;margin-bottom:36px;max-width:500px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:36px;margin-top:48px}
+.stat-num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--gold-light);line-height:1}
+.stat-label{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:28px;backdrop-filter:blur(10px)}
+.hero-card-title{font-family:'Playfair Display',serif;font-size:16px;color:#fff;margin-bottom:18px}
+.news-mini{border-bottom:1px solid rgba(255,255,255,.08);padding:11px 0}
+.news-mini:last-child{border:none;padding-bottom:0}
+.news-mini-date{font-size:10.5px;color:var(--gold);font-weight:700;letter-spacing:.04em;margin-bottom:3px}
+.news-mini-title a{font-size:13px;color:rgba(255,255,255,.78);line-height:1.45;transition:color .2s}
+.news-mini-title a:hover{color:var(--gold-light)}
+.quickbar{background:var(--cream);border-bottom:1px solid var(--border)}
+.quickbar-inner{max-width:1240px;margin:0 auto;padding:0 48px;display:flex}
+.qlink{flex:1;padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--navy);font-size:12.5px;font-weight:500;border-right:1px solid var(--border);text-align:center;transition:background .2s,color .2s}
+.qlink:last-child{border-right:none}
+.qlink:hover{background:var(--navy);color:#fff}
+.qlink:hover .qi{background:rgba(255,255,255,.15)!important;color:#fff}
+.qi{width:38px;height:38px;border-radius:10px;background:rgba(200,150,42,.12);display:flex;align-items:center;justify-content:center;font-size:17px;transition:background .2s}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.news-card-img{height:190px;background:var(--navy-mid);position:relative;overflow:hidden}
+.news-card-img img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s,transform .4s}
+.card:hover .news-card-img img{opacity:1;transform:scale(1.05)}
+.news-date-badge{position:absolute;bottom:12px;left:14px;background:var(--gold);color:#fff;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:8px;letter-spacing:.03em}
+.news-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.news-body h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);line-height:1.4;margin-bottom:9px}
+.news-body h3 a:hover{color:var(--gold)}
+.news-excerpt{font-size:13.5px;color:var(--muted);line-height:1.6;flex:1}
+.news-more{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:13px;font-weight:600;color:var(--gold);transition:gap .2s}
+.news-more:hover{gap:10px}
+.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.act-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px 20px;text-align:center;transition:border-color .2s,box-shadow .2s,transform .2s}
+.act-card:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(200,150,42,.12);transform:translateY(-3px)}
+.act-icon{font-size:30px;margin-bottom:12px;display:block}
+.act-card h4{font-family:'Playfair Display',serif;font-size:14.5px;color:var(--navy);margin-bottom:7px}
+.act-card p{font-size:12.5px;color:var(--muted);line-height:1.55}
+.dark-band{background:linear-gradient(135deg,var(--navy) 0%,#0f2847 100%);position:relative;overflow:hidden}
+.dark-band::before{content:'';position:absolute;top:-80px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(200,150,42,.18) 0%,transparent 68%)}
+.dark-band-inner{max-width:1240px;margin:0 auto;padding:72px 48px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.dark-band h2{font-family:'Playfair Display',serif;font-size:36px;color:#fff;margin-bottom:18px;line-height:1.2}
+.dark-band h2 em{font-style:normal;color:var(--gold-light)}
+.dark-band p{color:rgba(255,255,255,.62);font-size:15px;line-height:1.75;margin-bottom:26px}
+.patron-strip{background:var(--cream);border-top:1px solid var(--border)}
+.patron-inner{max-width:1240px;margin:0 auto;padding:70px 48px;display:grid;grid-template-columns:200px 1fr;gap:56px;align-items:center}
+.patron-portrait{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;border:4px solid var(--gold);font-size:60px;flex-shrink:0}
+.patron-quote blockquote{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--navy);line-height:1.55;margin-bottom:18px;position:relative;padding-left:26px}
+.patron-quote blockquote::before{content:'"';position:absolute;left:0;top:-8px;font-size:56px;color:var(--gold);line-height:1;font-family:'Playfair Display',serif}
+.patron-attr{font-size:13px;color:var(--muted);font-weight:500}
+@media(max-width:960px){
+  .hero-content{grid-template-columns:1fr;padding:60px 20px}
+  .hero-card{display:none}
+  .hero-stats{gap:20px}
+  .quickbar-inner{flex-wrap:wrap;padding:0 20px}
+  .qlink{flex:1 1 33%;border-right:none;border-bottom:1px solid var(--border)}
+  .news-grid{grid-template-columns:1fr}
+  .act-grid{grid-template-columns:repeat(2,1fr)}
+  .dark-band-inner{grid-template-columns:1fr;padding:48px 20px}
+  .patron-inner{grid-template-columns:1fr;text-align:center;padding:50px 20px}
+  .patron-portrait{margin:0 auto}
+}
+
+
+.school-banner {
+  background: #fff;
+  border-top: 5px solid #C0202A;     /* czerwień polska */
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.school-banner-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.banner-godlo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-title {
+  flex: 1;
+  text-align: center;
+  line-height: 1.3;
+  padding: 4px 0;
+}
+.banner-school-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 900;
+  color: #0d1f3c;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.banner-patron {
+  font-size: clamp(13px, 1.4vw, 17px);
+  color: #444;
+  margin-top: 3px;
+  font-style: italic;
+}
+.banner-city {
+  font-size: clamp(13px, 1.4vw, 17px);
+  color: #444;
+  font-style: italic;
+}
+.banner-right {
+  flex-shrink: 0;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.banner-counter, .banner-days {
+  background: #0d1f3c;
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 90px;
+}
+.banner-counter-num, .banner-days-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #e8b84b;
+  line-height: 1;
+}
+.banner-counter-lbl, .banner-days-lbl {
+  display: block;
+  font-size: 10px;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 4px;
+}
+.banner-stripe {
+  height: 5px;
+  background: linear-gradient(90deg, #C0202A 0%, #C0202A 33%, #fff 33%, #fff 66%, #0d1f3c 66%);
+}
+@media(max-width:960px){
+  .school-banner-inner { padding: 14px 20px; gap: 14px; }
+  .banner-right { display: none; }
+  .banner-school-number { font-size: 16px; }
+  .banner-godlo img { height: 72px !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span>SP nr 3 · Brzeziny</span>
+    <span class="chip">🌞 Do wakacji: 30 dni</span>
+  </div>
+  <div class="topbar-right">
+    <a href="kontakt.html">Kontakt</a>
+    <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer">BIP</a>
+    <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik</a>
+    <a href="https://login.microsoftonline.com/" target="_blank" rel="noopener noreferrer">Office 365</a>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="img/logo-szkoly.png" alt="Logo SP3 Brzeziny" style="width:82px;height:82px;object-fit:contain;display:block;flex-shrink:0">
+      <div class="logo-copy">
+        <strong>Szkoła Podstawowa nr 3</strong>
+        <small>im. Władysława Stanisława Reymonta w Brzezinach</small>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a class="nav-link active" href="aktualnosci.html">Aktualności</a>
+      <div class="nav-item">
+        <a class="nav-link" href="o-nas.html">O nas ▾</a>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="o-nas.html#historia">Historia szkoły</a>
+          <a href="o-nas.html#patron">Patron — W.S. Reymont</a>
+          <a href="o-nas.html#samorzad">Samorząd Uczniowski</a>
+          <a href="o-nas.html#biblioteka">Biblioteka</a>
+          <a href="o-nas.html#zdrowie">Szkoła Promująca Zdrowie</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="zajecia.html">Zajęcia ▾</a>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="zajecia.html">Zajęcia pozalekcyjne</a>
+          <a href="swietlica.html">Świetlica szkolna</a>
+        </div></div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="dla-rodzicow.html">Dla rodziców ▾</a>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="dla-rodzicow.html">Strona główna</a>
+          <a href="dla-rodzicow.html#podreczniki">Podręczniki</a>
+          <a href="dla-rodzicow.html#dokumenty">Dokumenty</a>
+          <a href="dla-rodzicow.html#stolowka">Stołówka</a>
+          <a href="dla-rodzicow.html#pedagog">Pedagog szkolny</a>
+          <a href="dla-rodzicow.html#konsultacje">Konsultacje</a>
+        </div></div>
+      </div>
+      <a class="nav-link" href="projekty.html">Projekty</a>
+      <a class="nav-link" href="rekrutacja.html">Rekrutacja</a>
+      <a class="nav-link" href="kontakt.html">Kontakt</a>
+      <a class="nav-link nav-cta" href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik →</a>
+    </nav>
+    <button class="hamburger" aria-label="Otwórz menu nawigacji" onclick="document.getElementById('mobileNav').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileNav').classList.contains('open')?'hidden':''">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <span class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow=''">✕</span>
+  <a href="index.html">🏠 Strona główna</a>
+  <a href="aktualnosci.html">📰 Aktualności</a>
+  <a href="o-nas.html">🏫 O nas</a>
+  <a href="o-nas.html#historia" class="sub">Historia szkoły</a>
+  <a href="o-nas.html#patron" class="sub">Patron — W.S. Reymont</a>
+  <a href="zajecia.html">🎭 Zajęcia pozalekcyjne</a>
+  <a href="swietlica.html">🌟 Świetlica</a>
+  <a href="dla-rodzicow.html">👨‍👩‍👧 Dla rodziców</a>
+  <a href="projekty.html">📋 Projekty</a>
+  <a href="rekrutacja.html">📝 Rekrutacja</a>
+  <a href="kontakt.html">📞 Kontakt</a>
+  <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:700">📘 e-Dziennik Librus</a>
+</div>
+
+<!-- HERO -->
+
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div>
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px">
+        <img src="img/logo-szkoly.png" alt="Logo SP3 Brzeziny" style="height:90px;width:90px;object-fit:contain;flex-shrink:0;display:block">
+        <div class="hero-badge" style="margin-bottom:0">Rok szkolny 2025/2026</div>
+      </div>
+      <h1>Szkoła, która<br>inspiruje i <em>kształtuje</em><br>przyszłość</h1>
+      <p class="hero-sub">Szkoła Podstawowa nr 3 im. Władysława Stanisława Reymonta w Brzezinach — miejsce, gdzie tradycja spotyka się z nowoczesnością i gdzie każde dziecko odkrywa swój potencjał.</p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" href="aktualnosci.html">📰 Aktualności</a>
+        <a class="btn" style="border:1.5px solid rgba(255,255,255,.3);color:#fff" href="rekrutacja.html">Rekrutacja 2026/2027</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">1,09M</div><div class="stat-label">odwiedzin</div></div>
+        <div><div class="stat-num">30</div><div class="stat-label">dni do wakacji</div></div>
+        <div><div class="stat-num">0–8</div><div class="stat-label">klasy</div></div>
+        <div><div class="stat-num">10+</div><div class="stat-label">kół zainteresowań</div></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">📢 Najnowsze wiadomości</div>
+      <div class="news-mini"><div class="news-mini-date">08.05.2026</div><div class="news-mini-title"><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Dzień Patrona — uroczystości ku czci W.S. Reymonta</a></div></div>
+      <div class="news-mini"><div class="news-mini-date">06.05.2026</div><div class="news-mini-title"><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Sabina Staszczyk — laureatka Konkursu Papieskiego</a></div></div>
+      <div class="news-mini"><div class="news-mini-date">04.05.2026</div><div class="news-mini-title"><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Uroczysty apel z okazji Konstytucji 3 Maja</a></div></div>
+      <div class="news-mini"><div class="news-mini-date">20.04.2026</div><div class="news-mini-title"><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Sukces w Powiatowym Turnieju BRD!</a></div></div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)">
+        <a href="aktualnosci.html" style="font-size:13px;color:var(--gold-light);font-weight:600">Wszystkie aktualności →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<div class="quickbar">
+  <div class="quickbar-inner">
+    <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" class="qlink"><div class="qi">📘</div>e-Dziennik</a>
+    <a href="rekrutacja.html" class="qlink"><div class="qi">📝</div>Rekrutacja</a>
+    <a href="dla-rodzicow.html" target="_blank" rel="noopener noreferrer" class="qlink"><div class="qi">📅</div>Kalendarium</a>
+    <a href="dla-rodzicow.html#pedagog" class="qlink"><div class="qi">🤝</div>Pedagog</a>
+    <a href="dla-rodzicow.html#stolowka" class="qlink"><div class="qi">🍽️</div>Stołówka</a>
+    <a href="o-nas.html#biblioteka" class="qlink"><div class="qi">📚</div>Biblioteka</a>
+  </div>
+</div>
+
+<!-- AKTUALNOŚCI PREVIEW -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Co słychać</span>
+    <h2 class="section-title">Aktualności <em>ze szkoły</em></h2>
+    <div class="news-grid">
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="news-card-img"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1037/content/IMG_20260508_093330-300x220.jpg?token=25c69c3aeda96a73943120bf96f51d8b" alt="Dzień Patrona" onerror="this.style.display='none'"><span class="news-date-badge">08.05.2026</span></div>
+        <div class="news-body"><h3><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Dzień Patrona Szkoły Podstawowej nr 3</a></h3><p class="news-excerpt">8 maja społeczność szkolna uroczyście obchodziła Dzień Patrona poświęcony Władysławowi Stanisławowi Reymontowi — nobliście i patronowi szkoły.</p><a href="wpis-dzien-patrona.html" target="_blank" rel="noopener noreferrer" class="news-more">Czytaj dalej →</a></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="news-card-img"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1036/content/sabina1-300x220.jpg?token=6e7536547f70c478c84797e80a210250" alt="Sabina" onerror="this.style.display='none'"><span class="news-date-badge">06.05.2026</span></div>
+        <div class="news-body"><h3><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Sabina Staszczyk — laureatka Konkursu Papieskiego</a></h3><p class="news-excerpt">Uczennica klasy 8A zdobyła wyróżnienie w Ogólnopolskim Konkursie Papieskim „Wstańcie, chodźmy" — wielki sukces naszej szkoły!</p><a href="wpis-sabina-konkurs-papieski.html" target="_blank" rel="noopener noreferrer" class="news-more">Czytaj dalej →</a></div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column">
+        <div class="news-card-img"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1034/content/674344776_1585707746893920_136568424887287495_n-300x220.jpg?token=ae0e3c2647b754b23aafe235a45efb1f" alt="BRD" onerror="this.style.display='none'"><span class="news-date-badge">20.04.2026</span></div>
+        <div class="news-body"><h3><a href="aktualnosci.html" target="_blank" rel="noopener noreferrer">Sukces uczniów SP nr 3 w Turnieju BRD!</a></h3><p class="news-excerpt">Powiatowy Turniej Bezpieczeństwa w Ruchu Drogowym zakończył się triumfem naszych uczniów — gratulujemy!</p><a href="wpis-turniej-brd.html" target="_blank" rel="noopener noreferrer" class="news-more">Czytaj dalej →</a></div>
+      </div>
+    </div>
+    <div class="center mt-8"><a class="btn btn-outline" href="aktualnosci.html">Wszystkie aktualności →</a></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PATRON -->
+<div class="patron-strip">
+  <div class="patron-inner">
+    <div class="patron-portrait">📖</div>
+    <div class="patron-quote">
+      <span class="eyebrow">Nasz patron</span>
+      <h2 class="section-title">Władysław Stanisław <em>Reymont</em></h2>
+      <blockquote>Człowiek musi sam sobie stworzyć warunki, jeśli chce coś osiągnąć w życiu.</blockquote>
+      <p class="patron-attr">— Władysław Stanisław Reymont, Noblista 1924, patron naszej szkoły</p>
+      <br>
+      <a class="btn btn-outline" href="o-nas.html#patron" style="font-size:13px;padding:10px 22px;margin-top:6px">Poznaj patrona szkoły →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ZAJĘCIA -->
+<section class="section bg-cream">
+  <div class="container">
+    <span class="eyebrow">Oferta szkoły</span>
+    <h2 class="section-title">Zajęcia <em>pozalekcyjne</em></h2>
+    <p class="section-sub">Rozwijamy talenty i zainteresowania uczniów w ponad 10 kołach i sekcjach.</p>
+    <div class="act-grid">
+      <div class="act-card"><span class="act-icon">🤖</span><h4>Robotyka</h4><p>Programowanie i konstruowanie robotów dla przyszłych inżynierów.</p></div>
+      <div class="act-card"><span class="act-icon">🎭</span><h4>Koło Teatralne „Pacynki"</h4><p>Zdolności aktorskie i kreatywność sceniczna.</p></div>
+      <div class="act-card"><span class="act-icon">🎵</span><h4>Chór Szkolny</h4><p>Wspólne muzykowanie i doskonalenie umiejętności wokalnych.</p></div>
+      <div class="act-card"><span class="act-icon">🎨</span><h4>Zajęcia Plastyczne</h4><p>Malarstwo, rysunek i rozwijanie wrażliwości artystycznej.</p></div>
+      <div class="act-card"><span class="act-icon">🧮</span><h4>Matematyka kl. 3</h4><p>Olimpiady i zadania logiczne dla uzdolnionych matematycznie.</p></div>
+      <div class="act-card"><span class="act-icon">🌍</span><h4>Język Angielski</h4><p>Zajęcia rozwijające i wyrównawcze dla klas V–VII.</p></div>
+      <div class="act-card"><span class="act-icon">💃</span><h4>Rytmika i Taniec</h4><p>Ruch, muzyka i taniec jako forma ekspresji twórczej.</p></div>
+      <div class="act-card"><span class="act-icon">✋</span><h4>Terapia Ręki</h4><p>Specjalistyczne wsparcie motoryki małej uczniów.</p></div>
+    </div>
+    <div class="center mt-8"><a class="btn btn-outline" href="zajecia.html">Pełna oferta zajęć →</a></div>
+  </div>
+</section>
+
+
+<!-- PHOTO GALLERY -->
+<section class="section bg-cream">
+  <div class="container">
+    <span class="eyebrow">Życie szkolne</span>
+    <h2 class="section-title">Nasza szko&#322;a <em>w obrazach</em></h2>
+    <p class="section-sub">Zajrzyj do naszych klas, sal i boisk &#8212; tu ka&#380;dego dnia dzieje si&#281; co&#347; wa&#380;nego.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px">
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1037/content/IMG_20260508_093330-300x220.jpg?token=25c69c3aeda96a73943120bf96f51d8b" alt="Dzie&#324; Patrona" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_klasa.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1031/content/682857741_1591087276355967_1036724966558473437_n-300x220.jpg?token=600b4e09e9bc0709f4f1908e958f8449" alt="Dzie&#324; j&#281;zyka angielskiego" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_klasa.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1034/content/674344776_1585707746893920_136568424887287495_n-300x220.jpg?token=ae0e3c2647b754b23aafe235a45efb1f" alt="Turniej BRD" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_sport.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1035/content/689538333_1599109458887082_1313530930903569931_n-300x220.jpg?token=02d5af264ed63b42fdc75ff5a96c4484" alt="Apel 3 Maja" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_budynek.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1032/content/680502858_1590431446421550_3760665877515958888_n-300x220.jpg?token=eff97c5a8fba3c63ed090294ef35d0ba" alt="Biblioteka" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_bibl.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1028/content/671890229_1581787670619261_2553557107508667421_n-300x220.jpg?token=67a3c68b8115052feef2268708f2c2be" alt="Aria Martelle" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_teatr.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+      <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)"><img src="https://sp3brzeziny.wikom.pl/uploads/thumbs/5dab005b3bad2/newses/1033/content/677308110_1587400673391294_1675335466876283770_n-300x220.jpg?token=d309bf78484a40b0cf609275f3590763" alt="Konkurs matematyczny" style="width:100%;height:100%;object-fit:cover;opacity:.9;transition:.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.9" onerror="this.parentNode.innerHTML='<img src=&quot;img/foto_robot.svg&quot; style=&quot;width:100%;height:100%;object-fit:cover&quot;>'"></div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a href="aktualnosci.html" class="btn btn-outline">Wi&#281;cej zdj&#281;&#263; i relacji &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- DARK BAND -->
+<div class="dark-band">
+  <div class="dark-band-inner">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)">Dla rodziców i uczniów</span>
+      <h2>Wszystko czego potrzebujesz <em>w jednym miejscu</em></h2>
+      <p>Sprawdzaj oceny i nieobecności w e-dzienniku Librus, pobieraj dokumenty szkolne i zapoznaj się z ważnymi informacjami dla rodziców.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)">📘 LIBRUS</a>
+        <a href="https://login.microsoftonline.com/" target="_blank" rel="noopener noreferrer" class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)">☁️ Office 365</a>
+        <a href="https://www.facebook.com/Szko%C5%82a-Podstawowa-nr-3-im-W%C5%82adys%C5%82awa-St-Reymonta-w-Brzezinach-350716169451462" target="_blank" rel="noopener noreferrer" class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)">📣 Facebook</a>
+      </div>
+    </div>
+    <div>
+      <div class="dark-card"><div style="font-size:20px;margin-bottom:8px">📋</div><h4>Dokumenty szkolne</h4><p>Statut, regulaminy, wnioski i ważne pisma.</p><a href="dla-rodzicow.html#dokumenty">Pobierz dokumenty →</a></div>
+      <div class="dark-card"><div style="font-size:20px;margin-bottom:8px">🗓️</div><h4>Dodatkowe dni wolne</h4><p>Zaplanuj urlop zgodnie z kalendarzem szkolnym.</p><a href="dla-rodzicow.html" target="_blank" rel="noopener noreferrer">Sprawdź daty →</a></div>
+      <div class="dark-card"><div style="font-size:20px;margin-bottom:8px">📗</div><h4>Lista podręczników</h4><p>Wymagane podręczniki na rok szkolny 2025/2026.</p><a href="dla-rodzicow.html#podreczniki">Zobacz listę →</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="info-strip">📞 Masz pytania? Zadzwoń: <a href="tel:468742442">46 874-24-42</a> &nbsp;|&nbsp; Napisz: <a href="mailto:sekretariat@sp3brzeziny.edu.pl">sekretariat@sp3brzeziny.edu.pl</a></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Szkoła Podstawowa nr 3 im. Władysława Stanisława Reymonta w Brzezinach</strong>
+      <p>ul. Bohaterów Warszawy 4, 95-060 Brzeziny<br>tel. 46 874-24-42 · sekretariat@sp3brzeziny.edu.pl</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/Szko%C5%82a-Podstawowa-nr-3-im-W%C5%82adys%C5%82awa-St-Reymonta-w-Brzezinach-350716169451462" target="_blank" rel="noopener noreferrer" class="social-btn">📣</a>
+        <a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer" class="social-btn">📘</a>
+        <a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer" class="social-btn">📄</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>O szkole</h5><a href="o-nas.html#historia">Historia</a><a href="o-nas.html#patron">Patron</a><a href="o-nas.html#samorzad">Samorząd Uczniowski</a><a href="o-nas.html#biblioteka">Biblioteka</a><a href="o-nas.html#zdrowie">Szkoła Promująca Zdrowie</a></div>
+    <div class="footer-col"><h5>Zasoby</h5><a href="https://portal.librus.pl/szkola" target="_blank" rel="noopener noreferrer">e-Dziennik Librus</a><a href="https://login.microsoftonline.com/" target="_blank" rel="noopener noreferrer">Office 365</a><a href="dla-rodzicow.html#dokumenty">Dokumenty</a><a href="dla-rodzicow.html#podreczniki">Podręczniki</a><a href="rekrutacja.html">Rekrutacja</a></div>
+    <div class="footer-col"><h5>Prawne</h5><a href="http://www.bip.sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer">BIP</a><a href="polityka-prywatnosci.html" target="_blank" rel="noopener noreferrer">Polityka prywatności</a><a href="deklaracja-dostepnosci.html" target="_blank" rel="noopener noreferrer">Deklaracja dostępności</a><a href="rodo.html" target="_blank" rel="noopener noreferrer">RODO</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Szkoła Podstawowa nr 3 im. W.S. Reymonta w Brzezinach</span>
+    <span>© <a href="https://sp3brzeziny.wikom.pl" target="_blank" rel="noopener noreferrer">sp3brzeziny.wikom.pl</a></span>
+  </div>
+</footer>
+<script>
+(function(){
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)"}});},{threshold:0.07});
+  document.querySelectorAll(".card,.act-card").forEach(function(el,i){el.style.opacity="0";el.style.transform="translateY(16px)";el.style.transition="opacity .5s ease "+(i%6*0.08)+"s, transform .5s ease "+(i%6*0.08)+"s";io.observe(el);});
+})();
+</script>
+<script>
+(function(){
+  var target=new Date(2026,5,26);var today=new Date();today.setHours(0,0,0,0);
+  var days=Math.max(0,Math.ceil((target-today)/864e5));
+  var chip=document.querySelector('.chip');
+  if(chip&&chip.textContent.indexOf('wakacji')>-1)chip.textContent='🌞 Do wakacji: '+days+' dni';
+  var sn=document.querySelectorAll('.stat-num');
+  for(var i=0;i<sn.length;i++){if(sn[i].nextElementSibling&&sn[i].nextElementSibling.textContent==='dni do wakacji')sn[i].textContent=days;}
+})();
+</script></body>
+</html>
