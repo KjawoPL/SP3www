@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#1a3157"/>
+    <stop offset="100%" style="stop-color:#243d68"/>
+  </linearGradient></defs>
+  <rect width="400" height="280" fill="url(#g)" rx="8"/>
+  <rect x="0" y="240" width="400" height="40" fill="#c8962a" opacity="0.85" rx="0"/>
+  <text x="200" y="135" font-size="72" text-anchor="middle" dominant-baseline="middle">&#127979;</text>
+  <text x="200" y="260" font-family="Georgia,serif" font-size="16" fill="white" text-anchor="middle" dominant-baseline="middle">Sala lekcyjna</text>
+  <!-- Decorative grid lines -->
+  <line x1="0" y1="70" x2="400" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="0" y1="140" x2="400" y2="140" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="100" y1="0" x2="100" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="200" y1="0" x2="200" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+</svg>
